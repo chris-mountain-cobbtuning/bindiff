@@ -236,7 +236,7 @@ size_t SetComments(Address source, Address target,
              ok = xb.next_from(), ++count) {
           if (count == operand_id - UA_MAXOP - 1024) {
             qstring current_name = get_name(xb.to, /*gtn_flags=*/0);
-            if (ToStringView(current_name) == comment.comment) {
+            if (ToStringView(current_name) != comment.comment) {
               set_name(xb.to, comment.comment.c_str(), SN_NOWARN | SN_CHECK);
             }
             break;
